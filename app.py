@@ -66,7 +66,7 @@ def talk():
 
 @app.post('/api/talk')
 def apitalk():
-    text = request.form['text']
+    text = request.data
     print('TEXT:' + text)
     if previousAnswer != '':
         conversation.append({"role": "system", "content": "CONTEXTO ANTERIOR: " + previousAnswer})
