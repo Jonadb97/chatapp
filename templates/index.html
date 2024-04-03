@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple AI Chat</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <style>
+      body {
+        background-color: #212529;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container py-5">
+      <h1 class="display-4 text-center mb-5">Simple AI Chat</h1>
+
+      <div class="row">
+        <div class="container mx-auto">
+          <form action="/talk" method="POST">
+            <div class="form-group">
+              <label for="textInput">Input</label>
+              <input
+                type="text"
+                class="form-control"
+                id="text"
+                name="text"
+                placeholder="Enter text"
+              />
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">
+              Send
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div id="chatOutput">
+      <span markdown="1">
+        <pre
+          markdown="1"
+          style="
+            color: white;
+            height: auto;
+            width: 100vw;
+            overflow: none;
+            text-wrap: wrap;
+            padding: 2rem;
+          "
+        >
+{{ answer }}</pre
+        >
+      </span>
+    </div>
+  </body>
+</html>
+<script type="module" src="{{ url_for('static', filename='js/index.js') }}">
+</script>
+
+
+
+
