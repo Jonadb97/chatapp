@@ -1,0 +1,6 @@
+# /requirements.txt
+
+flask==3.0.0
+g4f[all]
+
+# other required dependencies
