@@ -79,4 +79,4 @@ def apitalk():
 
 
 
-app.run(host='0.0.0.0', port=8069)
+app.run(debug=False, port=8000)
