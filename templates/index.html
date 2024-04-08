@@ -33,11 +33,12 @@
               Esta aplicación está integrada con versiones gratis de modelos de lenguaje, por ende su funcionalidad es limitada en aspectoso como:
               <br>
               <ul>
-                <li>No mantiene contexto de la conversación ni tiene memoria</li>
+                <li>No mantiene contexto de la conversación ni tiene memoria, no me tomé el tiempo de implementarla en cada uno de los modelos 🤷‍♂️️</li>
                 <li>No varía mucho en cuanto a las respuestas</li>
-                <li>Sigue muy estrictamente las instrucciones de trasfondo y no va hacerte caso si pedís otras cosas</li>
                 <li>Es lenta en generar la respuesta</li>
               </ul>
+              <br>
+              En conclusión el ambiente de LLM (Modelos Grandes de Lenguaje) en español todavía está muy fresco, encontré como 6 pero son muy específicos y no aplicables a esta aplicación, incluso estos deliran muchísimo, lejos de ser funcional por lo menos en español.
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
@@ -48,20 +49,27 @@
       <br>
       <div class="row">
         <div class="container mx-auto">
-          <form action="/talk" method="POST">
+          <form action="/talktobloom" method="POST">
             <div class="form-group">
-              <label for="textInput">Input</label>
+              <label for="textInput">Entrada</label>
+              <br>
               <input
                 type="text"
                 class="form-control"
                 id="text"
                 name="text"
-                placeholder="Enter text"
+                placeholder="Escribí acá"
               />
+              <br>
+              <select class="form-select" aria-label="Default select example" id="model" name="model">
+                <option selected>Elegí el modelo con el que querés hablar</option>
+                <option value="https://api-inference.huggingface.co/models/emre/spanish-dialoGPT">Dialog GPT</option>
+                <option value="https://api-inference.huggingface.co/models/mistralai/Mistral-7B-Instruct-v0.2">Mistral instructor</option>
+              </select>
             </div>
-<br>
-            <button type="submit" class="btn btn-primary btn-block">
-              Send
+<br>        
+            <button type="submit" class="btn btn-success btn-block">
+              Enviar
             </button>
           </form>
         </div>
