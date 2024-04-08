@@ -51,7 +51,7 @@ def index():
 def index():
     return render_template('index.html')
 
-@app.route('/talk', methods=['GET', 'POST'])
+@app.post('/talk')
 def talk():
     text = request.form['text']
     print('TEXT:' + text)
@@ -63,20 +63,5 @@ def talk():
             conversation.append({"role": "system", "content": "CONTEXTO ANTERIOR: " + previousAnswer})
     print(conversation)
     return get_answer(text)
-
-@app.post('/api/talk')
-def apitalk():
-    text = request.data
-    print(text)
-    if previousAnswer != '':
-        conversation.append({"role": "system", "content": "CONTEXTO ANTERIOR: " + previousAnswer})
-    if text != '':
-        conversation.append({"role": "user", "content": text})
-        if conversation == '':
-            conversation.append({"role": "system", "content": "CONTEXTO ANTERIOR: " + previousAnswer})
-    print(conversation)
-    return get_answer_api(text)
-
-
 
 app.run(debug=False, host='0.0.0.0', port=10000)
