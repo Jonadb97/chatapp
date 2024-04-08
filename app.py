@@ -47,11 +47,11 @@ def index():
 """
 
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def index():
     return render_template('index.html')
 
-@app.post('/talk')
+@app.post('/talk', methods=['GET', 'POST'])
 def talk():
     text = request.form['text']
     print('TEXT:' + text)
@@ -64,7 +64,7 @@ def talk():
     print(conversation)
     return get_answer(text)
 
-@app.post('/api/talk')
+@app.post('/api/talk', methods=['GET', 'POST'])
 def apitalk():
     text = request.data
     print(text)
