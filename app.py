@@ -51,7 +51,7 @@ def index():
 def index():
     return render_template('index.html')
 
-@app.post('/talk', methods=['GET', 'POST'])
+@app.route('/talk', methods=['GET', 'POST'])
 def talk():
     text = request.form['text']
     print('TEXT:' + text)
@@ -64,7 +64,7 @@ def talk():
     print(conversation)
     return get_answer(text)
 
-@app.post('/api/talk', methods=['GET', 'POST'])
+@app.post('/api/talk')
 def apitalk():
     text = request.data
     print(text)
